@@ -1,0 +1,33 @@
+# configuration file for energy analysis project
+cities:
+  - city: "New York"
+    state: "New York"
+    station: "GHCND:USW00094728"
+    region: "NYIS"
+    timezone: "Eastern"
+
+  - city: "Chicago"
+    state: "Illinois"
+    station: "GHCND:USW00094846"
+    region: "PJM"
+    timezone: "Eastern"
+
+  - city: "Houston"
+    state: "Texas"    
+    station: "GHCND:USW00012960"
+    region: "ERCO"
+    timezone: "Central"
+
+  - city: "Phoenix"
+    state: "Arizona"
+    station: "GHCND:USW00023183"
+    region: "AZPS"
+    timezone: "Mountain"
+
+  - city: "Seattle"
+    state: "Washington"
+    station: "GHCND:USW00024233"
+    region: "SCL"
+    timezone: "Pacific"
+
+
