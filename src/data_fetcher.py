@@ -33,13 +33,15 @@ def get_energy_dates_per_city(file_path):
 
 
 def get_weather_start_date(city, date_dict):
-    start_date = date_dict.get(city, pd.Timestamp("2025-03-01")) + datetime.timedelta(days=1)
+    default_start = datetime.date.today() - datetime.timedelta(days=120)
+    start_date = date_dict.get(city, default_start) + datetime.timedelta(days=1)
     return str(start_date.date())
     
     
 def get_energy_start_date(city, type, date_dict):
     key = (city, type)
-    start_date = date_dict.get(key, pd.Timestamp("2025-03-01")) + datetime.timedelta(days=1)
+    default_start = datetime.date.today() - datetime.timedelta(days=120)
+    start_date = date_dict.get(key, default_start) + datetime.timedelta(days=1)
     return str(start_date.date())
 
 

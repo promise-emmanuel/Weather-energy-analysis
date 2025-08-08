@@ -1509,3 +1509,93 @@ period,respondent,respondent-name,type,type-name,timezone,timezone-description,v
 2025-07-29,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,9620,megawatthours,Seattle,Washington
 2025-07-28,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,9200,megawatthours,Seattle,Washington
 2025-07-27,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,7693,megawatthours,Seattle,Washington
+2025-07-31,NYIS,New York Independent System Operator,D,Demand,Eastern,Eastern,531768,megawatthours,New York,New York
+2025-07-31,NYIS,New York Independent System Operator,NG,Net generation,Eastern,Eastern,477090,megawatthours,New York,New York
+2025-07-31,PJM,"PJM Interconnection, LLC",D,Demand,Eastern,Eastern,2795976,megawatthours,Chicago,Illinois
+2025-07-31,PJM,"PJM Interconnection, LLC",NG,Net generation,Eastern,Eastern,2904226,megawatthours,Chicago,Illinois
+2025-07-31,ERCO,"Electric Reliability Council of Texas, Inc.",D,Demand,Central,Central,1646148,megawatthours,Houston,Texas
+2025-07-31,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1642845,megawatthours,Houston,Texas
+2025-07-31,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,118690,megawatthours,Phoenix,Arizona
+2025-07-31,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,66645,megawatthours,Phoenix,Arizona
+2025-07-31,SCL,Seattle City Light,D,Demand,Pacific,Pacific,24518,megawatthours,Seattle,Washington
+2025-07-31,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,9960,megawatthours,Seattle,Washington
+2025-08-01,NYIS,New York Independent System Operator,D,Demand,Eastern,Eastern,416720,megawatthours,New York,New York
+2025-08-01,NYIS,New York Independent System Operator,NG,Net generation,Eastern,Eastern,356258,megawatthours,New York,New York
+2025-08-01,PJM,"PJM Interconnection, LLC",D,Demand,Eastern,Eastern,2322750,megawatthours,Chicago,Illinois
+2025-08-01,PJM,"PJM Interconnection, LLC",NG,Net generation,Eastern,Eastern,2482969,megawatthours,Chicago,Illinois
+2025-08-01,ERCO,"Electric Reliability Council of Texas, Inc.",D,Demand,Central,Central,1628717,megawatthours,Houston,Texas
+2025-08-01,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1625474,megawatthours,Houston,Texas
+2025-08-01,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,155244,megawatthours,Phoenix,Arizona
+2025-08-01,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,89987,megawatthours,Phoenix,Arizona
+2025-08-01,SCL,Seattle City Light,D,Demand,Pacific,Pacific,24346,megawatthours,Seattle,Washington
+2025-08-01,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,8027,megawatthours,Seattle,Washington
+2025-08-02,NYIS,New York Independent System Operator,D,Demand,Eastern,Eastern,387889,megawatthours,New York,New York
+2025-08-02,NYIS,New York Independent System Operator,NG,Net generation,Eastern,Eastern,334919,megawatthours,New York,New York
+2025-08-02,PJM,"PJM Interconnection, LLC",D,Demand,Eastern,Eastern,2136844,megawatthours,Chicago,Illinois
+2025-08-02,PJM,"PJM Interconnection, LLC",NG,Net generation,Eastern,Eastern,2291234,megawatthours,Chicago,Illinois
+2025-08-02,ERCO,"Electric Reliability Council of Texas, Inc.",D,Demand,Central,Central,1536823,megawatthours,Houston,Texas
+2025-08-02,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1533998,megawatthours,Houston,Texas
+2025-08-02,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,145610,megawatthours,Phoenix,Arizona
+2025-08-02,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,86360,megawatthours,Phoenix,Arizona
+2025-08-02,SCL,Seattle City Light,D,Demand,Pacific,Pacific,22638,megawatthours,Seattle,Washington
+2025-08-02,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1533998,megawatthours,Houston,Texas
+2025-08-02,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,7235,megawatthours,Seattle,Washington
+2025-08-02,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,145610,megawatthours,Phoenix,Arizona
+2025-08-02,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,86360,megawatthours,Phoenix,Arizona
+2025-08-02,SCL,Seattle City Light,D,Demand,Pacific,Pacific,22638,megawatthours,Seattle,Washington
+2025-08-02,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1533998,megawatthours,Houston,Texas
+2025-08-02,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,7235,megawatthours,Seattle,Washington
+2025-08-02,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,145610,megawatthours,Phoenix,Arizona
+2025-08-02,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,86360,megawatthours,Phoenix,Arizona
+2025-08-02,SCL,Seattle City Light,D,Demand,Pacific,Pacific,22638,megawatthours,Seattle,Washington
+2025-08-02,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,7235,megawatthours,Seattle,Washington
+2025-08-03,NYIS,New York Independent System Operator,D,Demand,Eastern,Eastern,403537,megawatthours,New York,New York
+2025-08-03,NYIS,New York Independent System Operator,NG,Net generation,Eastern,Eastern,349013,megawatthours,New York,New York
+2025-08-03,PJM,"PJM Interconnection, LLC",D,Demand,Eastern,Eastern,2144322,megawatthours,Chicago,Illinois
+2025-08-03,PJM,"PJM Interconnection, LLC",NG,Net generation,Eastern,Eastern,2299509,megawatthours,Chicago,Illinois
+2025-08-03,ERCO,"Electric Reliability Council of Texas, Inc.",D,Demand,Central,Central,1534803,megawatthours,Houston,Texas
+2025-08-03,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1532996,megawatthours,Houston,Texas
+2025-08-03,NYIS,New York Independent System Operator,D,Demand,Eastern,Eastern,403537,megawatthours,New York,New York
+2025-08-03,NYIS,New York Independent System Operator,NG,Net generation,Eastern,Eastern,349013,megawatthours,New York,New York
+2025-08-03,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,135939,megawatthours,Phoenix,Arizona
+2025-08-03,PJM,"PJM Interconnection, LLC",D,Demand,Eastern,Eastern,2144322,megawatthours,Chicago,Illinois
+2025-08-03,PJM,"PJM Interconnection, LLC",NG,Net generation,Eastern,Eastern,2299509,megawatthours,Chicago,Illinois
+2025-08-03,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,78982,megawatthours,Phoenix,Arizona
+2025-08-03,ERCO,"Electric Reliability Council of Texas, Inc.",D,Demand,Central,Central,1534803,megawatthours,Houston,Texas
+2025-08-03,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1532996,megawatthours,Houston,Texas
+2025-08-03,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,135939,megawatthours,Phoenix,Arizona
+2025-08-03,SCL,Seattle City Light,D,Demand,Pacific,Pacific,22014,megawatthours,Seattle,Washington
+2025-08-03,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,78982,megawatthours,Phoenix,Arizona
+2025-08-03,SCL,Seattle City Light,D,Demand,Pacific,Pacific,22014,megawatthours,Seattle,Washington
+2025-08-03,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,7357,megawatthours,Seattle,Washington
+2025-08-03,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,7357,megawatthours,Seattle,Washington
+2025-08-04,NYIS,New York Independent System Operator,D,Demand,Eastern,Eastern,470645,megawatthours,New York,New York
+2025-08-04,NYIS,New York Independent System Operator,NG,Net generation,Eastern,Eastern,410535,megawatthours,New York,New York
+2025-08-04,PJM,"PJM Interconnection, LLC",D,Demand,Eastern,Eastern,2435629,megawatthours,Chicago,Illinois
+2025-08-04,PJM,"PJM Interconnection, LLC",NG,Net generation,Eastern,Eastern,2569461,megawatthours,Chicago,Illinois
+2025-08-04,ERCO,"Electric Reliability Council of Texas, Inc.",D,Demand,Central,Central,1529226,megawatthours,Houston,Texas
+2025-08-04,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1529612,megawatthours,Houston,Texas
+2025-08-04,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,152011,megawatthours,Phoenix,Arizona
+2025-08-04,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,79127,megawatthours,Phoenix,Arizona
+2025-08-04,SCL,Seattle City Light,D,Demand,Pacific,Pacific,23601,megawatthours,Seattle,Washington
+2025-08-04,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,8447,megawatthours,Seattle,Washington
+2025-08-05,NYIS,New York Independent System Operator,D,Demand,Eastern,Eastern,487114,megawatthours,New York,New York
+2025-08-05,PJM,"PJM Interconnection, LLC",D,Demand,Eastern,Eastern,2516201,megawatthours,Chicago,Illinois
+2025-08-05,ERCO,"Electric Reliability Council of Texas, Inc.",D,Demand,Central,Central,1604201,megawatthours,Houston,Texas
+2025-08-05,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,161623,megawatthours,Phoenix,Arizona
+2025-08-05,SCL,Seattle City Light,D,Demand,Pacific,Pacific,23678,megawatthours,Seattle,Washington
+2025-08-05,NYIS,New York Independent System Operator,NG,Net generation,Eastern,Eastern,440797,megawatthours,New York,New York
+2025-08-05,PJM,"PJM Interconnection, LLC",NG,Net generation,Eastern,Eastern,2649663,megawatthours,Chicago,Illinois
+2025-08-05,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1585017,megawatthours,Houston,Texas
+2025-08-05,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,85705,megawatthours,Phoenix,Arizona
+2025-08-05,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,7600,megawatthours,Seattle,Washington
+2025-08-06,NYIS,New York Independent System Operator,D,Demand,Eastern,Eastern,474832,megawatthours,New York,New York
+2025-08-06,NYIS,New York Independent System Operator,NG,Net generation,Eastern,Eastern,436221,megawatthours,New York,New York
+2025-08-06,PJM,"PJM Interconnection, LLC",D,Demand,Eastern,Eastern,2531525,megawatthours,Chicago,Illinois
+2025-08-06,PJM,"PJM Interconnection, LLC",NG,Net generation,Eastern,Eastern,2677350,megawatthours,Chicago,Illinois
+2025-08-06,ERCO,"Electric Reliability Council of Texas, Inc.",D,Demand,Central,Central,1629490,megawatthours,Houston,Texas
+2025-08-06,ERCO,"Electric Reliability Council of Texas, Inc.",NG,Net generation,Central,Central,1626042,megawatthours,Houston,Texas
+2025-08-06,AZPS,Arizona Public Service Company,D,Demand,Mountain,Mountain,160770,megawatthours,Phoenix,Arizona
+2025-08-06,AZPS,Arizona Public Service Company,NG,Net generation,Mountain,Mountain,81152,megawatthours,Phoenix,Arizona
+2025-08-06,SCL,Seattle City Light,D,Demand,Pacific,Pacific,23378,megawatthours,Seattle,Washington
+2025-08-06,SCL,Seattle City Light,NG,Net generation,Pacific,Pacific,6902,megawatthours,Seattle,Washington

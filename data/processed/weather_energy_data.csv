@@ -749,3 +749,29 @@ date,city,state,TMAX,TMIN,respondent-name,timezone,value-units,Demand,Net genera
 2025-07-29,New York,New York,97.0,78.0,New York Independent System Operator,Eastern,megawatthours,610519.0,557581.0
 2025-07-29,Phoenix,Arizona,110.0,88.0,Arizona Public Service Company,Mountain,megawatthours,144569.0,82376.0
 2025-07-29,Seattle,Washington,85.0,57.0,Seattle City Light,Pacific,megawatthours,24950.0,9620.0
+2025-07-30,Chicago,Illinois,80.0,68.0,"PJM Interconnection, LLC",Eastern,megawatthours,3105921.0,3205020.0
+2025-07-30,Houston,Texas,101.0,80.0,"Electric Reliability Council of Texas, Inc.",Central,megawatthours,1616598.0,1615231.0
+2025-07-30,New York,New York,95.0,75.0,New York Independent System Operator,Eastern,megawatthours,603912.0,549165.0
+2025-07-30,Phoenix,Arizona,111.0,87.0,Arizona Public Service Company,Mountain,megawatthours,154485.0,91516.0
+2025-07-30,Seattle,Washington,85.0,58.0,Seattle City Light,Pacific,megawatthours,25190.0,10442.0
+2025-07-31,Chicago,Illinois,76.0,64.0,"PJM Interconnection, LLC",Eastern,megawatthours,2795976.0,2904226.0
+2025-07-31,Houston,Texas,95.0,83.0,"Electric Reliability Council of Texas, Inc.",Central,megawatthours,1646148.0,1642845.0
+2025-07-31,New York,New York,89.0,65.0,New York Independent System Operator,Eastern,megawatthours,531768.0,477090.0
+2025-07-31,Phoenix,Arizona,111.0,88.0,Arizona Public Service Company,Mountain,megawatthours,118690.0,66645.0
+2025-07-31,Seattle,Washington,80.0,60.0,Seattle City Light,Pacific,megawatthours,24518.0,9960.0
+2025-08-01,Chicago,Illinois,75.0,61.0,"PJM Interconnection, LLC",Eastern,megawatthours,2322750.0,2482969.0
+2025-08-01,Houston,Texas,97.0,82.0,"Electric Reliability Council of Texas, Inc.",Central,megawatthours,1628717.0,1625474.0
+2025-08-01,New York,New York,73.0,63.0,New York Independent System Operator,Eastern,megawatthours,416720.0,356258.0
+2025-08-01,Phoenix,Arizona,113.0,92.0,Arizona Public Service Company,Mountain,megawatthours,155244.0,89987.0
+2025-08-01,Seattle,Washington,75.0,57.0,Seattle City Light,Pacific,megawatthours,24346.0,8027.0
+2025-08-02,Chicago,Illinois,78.0,59.0,"PJM Interconnection, LLC",Eastern,megawatthours,2136844.0,2291234.0
+2025-08-02,Houston,Texas,92.0,78.0,"Electric Reliability Council of Texas, Inc.",Central,megawatthours,1536823.0,1533998.0
+2025-08-02,New York,New York,80.0,63.0,New York Independent System Operator,Eastern,megawatthours,387889.0,334919.0
+2025-08-02,Phoenix,Arizona,114.0,90.0,Arizona Public Service Company,Mountain,megawatthours,145610.0,86360.0
+2025-08-02,Seattle,Washington,73.0,58.0,Seattle City Light,Pacific,megawatthours,22638.0,7235.0
+2025-08-03,Houston,Texas,98.0,78.0,"Electric Reliability Council of Texas, Inc.",Central,megawatthours,1534803.0,1532996.0
+2025-08-03,Phoenix,Arizona,112.0,84.0,Arizona Public Service Company,Mountain,megawatthours,135939.0,78982.0
+2025-08-03,Seattle,Washington,71.0,56.0,Seattle City Light,Pacific,megawatthours,22014.0,7357.0
+2025-08-04,Houston,Texas,91.0,76.0,"Electric Reliability Council of Texas, Inc.",Central,megawatthours,1529226.0,1529612.0
+2025-08-04,Phoenix,Arizona,112.0,87.0,Arizona Public Service Company,Mountain,megawatthours,152011.0,79127.0
+2025-08-04,Seattle,Washington,71.0,58.0,Seattle City Light,Pacific,megawatthours,23601.0,8447.0

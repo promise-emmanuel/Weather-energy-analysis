@@ -1,0 +1,138 @@
+Fetching data for New York...2025-08-03 - 2025-08-05
+⚠️ Warning: No weather data for New York. Skipping...
+
+Fetching data for Chicago...2025-08-03 - 2025-08-05
+⚠️ Warning: No weather data for Chicago. Skipping...
+
+Fetching data for Houston...2025-08-03 - 2025-08-05
+⚠️ Warning: No weather data for Houston. Skipping...
+
+Fetching data for Phoenix...2025-08-03 - 2025-08-05
+⚠️ Warning: No weather data for Phoenix. Skipping...
+
+Fetching data for Seattle...2025-08-03 - 2025-08-05
+⚠️ Warning: No weather data for Seattle. Skipping...
+
+
+Retrieving energy data......
+
+Data for New York is up-to-date
+
+Data for New York is up-to-date
+Sleeping for 10 seconds
+
+Data for Chicago is up-to-date
+
+Data for Chicago is up-to-date
+Sleeping for 10 seconds
+
+Data for Houston is up-to-date
+
+Data for Houston is up-to-date
+Sleeping for 10 seconds
+
+Data for Phoenix is up-to-date
+
+Data for Phoenix is up-to-date
+Sleeping for 10 seconds
+
+Data for Seattle is up-to-date
+
+Data for Seattle is up-to-date
+Sleeping for 10 seconds
+Data retriever done...
+
+completed task
+Fetching data for New York...2025-08-03 - 2025-08-06
+⚠️ Warning: No weather data for New York. Skipping...
+
+Fetching data for Chicago...2025-08-03 - 2025-08-06
+⚠️ Warning: No weather data for Chicago. Skipping...
+
+Fetching data for Houston...2025-08-04 - 2025-08-06
+⚠️ Warning: No weather data for Houston. Skipping...
+
+Fetching data for Phoenix...2025-08-04 - 2025-08-06
+⚠️ Warning: No weather data for Phoenix. Skipping...
+
+Fetching data for Seattle...2025-08-04 - 2025-08-06
+⚠️ Warning: No weather data for Seattle. Skipping...
+
+
+Retrieving energy data......
+
+Data for New York is up-to-date
+Fetching data for New York...2025-08-05 - 2025-08-06
+Saved 1 - NG rows for New York.
+Sleeping for 10 seconds
+
+Data for Chicago is up-to-date
+Fetching data for Chicago...2025-08-05 - 2025-08-06
+Saved 1 - NG rows for Chicago.
+Sleeping for 10 seconds
+
+Data for Houston is up-to-date
+Fetching data for Houston...2025-08-05 - 2025-08-06
+Saved 1 - NG rows for Houston.
+Sleeping for 10 seconds
+
+Data for Phoenix is up-to-date
+Fetching data for Phoenix...2025-08-05 - 2025-08-06
+Saved 1 - NG rows for Phoenix.
+Sleeping for 10 seconds
+
+Data for Seattle is up-to-date
+Fetching data for Seattle...2025-08-05 - 2025-08-06
+Saved 1 - NG rows for Seattle.
+Sleeping for 10 seconds
+Data retriever done...
+
+completed task
+Fetching data for New York...2025-08-03 - 2025-08-07
+Attempt 1 falied: 503 Server Error: Service Unavailable for url: https://www.ncei.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&stationid=GHCND%3AUSW00094728&startdate=2025-08-03&enddate=2025-08-07&datatypeid=TMAX%2C+TMIN&limit=1000&units=standard
+⚠️ Warning: No weather data for New York. Skipping...
+
+Fetching data for Chicago...2025-08-03 - 2025-08-07
+⚠️ Warning: No weather data for Chicago. Skipping...
+
+Fetching data for Houston...2025-08-04 - 2025-08-07
+Saved 2 rows for Houston. Sleeping for 10 Seconds…
+
+Fetching data for Phoenix...2025-08-04 - 2025-08-07
+Saved 2 rows for Phoenix. Sleeping for 10 Seconds…
+
+Fetching data for Seattle...2025-08-04 - 2025-08-07
+Attempt 1 falied: 503 Server Error: Service Unavailable for url: https://www.ncei.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&stationid=GHCND%3AUSW00024233&startdate=2025-08-04&enddate=2025-08-07&datatypeid=TMAX%2C+TMIN&limit=1000&units=standard
+Attempt 2 falied: 503 Server Error: Service Unavailable for url: https://www.ncei.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&stationid=GHCND%3AUSW00024233&startdate=2025-08-04&enddate=2025-08-07&datatypeid=TMAX%2C+TMIN&limit=1000&units=standard
+Saved 2 rows for Seattle. Sleeping for 10 Seconds…
+
+
+Retrieving energy data......
+Fetching data for New York...2025-08-06 - 2025-08-07
+Saved 1 - D rows for New York.
+Fetching data for New York...2025-08-06 - 2025-08-07
+Saved 1 - NG rows for New York.
+Sleeping for 10 seconds
+Fetching data for Chicago...2025-08-06 - 2025-08-07
+Saved 1 - D rows for Chicago.
+Fetching data for Chicago...2025-08-06 - 2025-08-07
+Saved 1 - NG rows for Chicago.
+Sleeping for 10 seconds
+Fetching data for Houston...2025-08-06 - 2025-08-07
+Saved 1 - D rows for Houston.
+Fetching data for Houston...2025-08-06 - 2025-08-07
+Saved 1 - NG rows for Houston.
+Sleeping for 10 seconds
+Fetching data for Phoenix...2025-08-06 - 2025-08-07
+Saved 1 - D rows for Phoenix.
+Fetching data for Phoenix...2025-08-06 - 2025-08-07
+Saved 1 - NG rows for Phoenix.
+Sleeping for 10 seconds
+Fetching data for Seattle...2025-08-06 - 2025-08-07
+Saved 1 - D rows for Seattle.
+Fetching data for Seattle...2025-08-06 - 2025-08-07
+Saved 1 - NG rows for Seattle.
+Sleeping for 10 seconds
+Data retriever done...
+
+completed task

@@ -20,6 +20,10 @@ NAOO_TOKEN = os.environ["NAOO_TOKEN"]
 EIA = os.getenv("EIA_KEY")
 
 
+with open("./logs/cron_test.log", "a") as f:
+    f.write(f"🚀 Script started at {datetime.datetime.now()}\n")
+
+
 def run_pipeline():
     #step 1: determine dates
     today = str(datetime.date.today())
@@ -33,8 +37,9 @@ def run_pipeline():
 
     
     #step 2: get cities, fetch current weather data and store in csv
-    if os.path.exists("./config"):
-        cities = get_cities("./config/config.yaml")
+    # if not os.path.exists("./config/config.yaml"):
+        # raise FileNotFoundError(f"Config not found at ./config/config.yaml...")
+    cities = get_cities("./config/config.yaml")
     
     
     for city_info in cities:
@@ -64,14 +69,15 @@ def run_pipeline():
                 index=False
             )        
             print(f"Saved {len(weather_df)} rows for {city}. Sleeping for 10 Seconds…")
-    
-        else:
             print()
+        else:
+        
             print(f"⚠️ Warning: No weather data for {city}. Skipping...")
+            print()
             continue
             
         
-        print()
+        
         # print("-"*50)
         time.sleep(10)
         
@@ -90,6 +96,7 @@ def run_pipeline():
             #get start date
             energy_start_date = get_energy_start_date(city=city, type=type, date_dict=energy_dates_per_city)
             if energy_start_date >= today:
+                print()
                 print(f"Data for {city} is up-to-date")
                 continue
             print(f"Fetching data for {city}...{energy_start_date} - {today}")   
@@ -112,6 +119,7 @@ def run_pipeline():
                 print(f"Saved {len(energy_df)} - {type} rows for {city}.")   
             else:
                 print(f"⚠️ Warning: {type} Energy report unavailable for {city}. Skipping...")
+                print()
                 continue
         
     

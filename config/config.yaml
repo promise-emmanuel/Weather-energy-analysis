@@ -5,29 +5,39 @@ cities:
     station: "GHCND:USW00094728"
     region: "NYIS"
     timezone: "Eastern"
+    Latitude: 40.7128
+    Longitude: -74.0060
 
   - city: "Chicago"
     state: "Illinois"
     station: "GHCND:USW00094846"
     region: "PJM"
     timezone: "Eastern"
+    Latitude: 41.8781
+    Longitude: -87.6298
 
   - city: "Houston"
     state: "Texas"    
     station: "GHCND:USW00012960"
     region: "ERCO"
     timezone: "Central"
+    Latitude: 29.7604
+    Longitude: -95.3698
 
   - city: "Phoenix"
     state: "Arizona"
     station: "GHCND:USW00023183"
     region: "AZPS"
     timezone: "Mountain"
+    Latitude: 33.4484
+    Longitude: -112.0740
 
   - city: "Seattle"
     state: "Washington"
     station: "GHCND:USW00024233"
     region: "SCL"
     timezone: "Pacific"
+    Latitude: 47.6062
+    Longitude: -122.3321
 
 
