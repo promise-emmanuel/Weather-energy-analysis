@@ -137,6 +137,8 @@ def run_pipeline():
         values="value"
     ).reset_index()
     
+    # Calculate average temperature
+    weather_pivot['TAVG'] = (weather_pivot['TMAX'] + weather_pivot['TMIN']) / 2
     
     energy = pd.read_csv("./data/raw/all_energy.csv")
     # # rename period to date and convert to proper date format

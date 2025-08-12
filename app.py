@@ -3,7 +3,8 @@ import pandas as pd
 import pydeck as pdk
 from datetime import datetime
 import yaml
-
+# import plotly.express as px
+# import statsmodels.api as sm
 
 from src.quality_checks import (
     missing_values,
@@ -11,7 +12,10 @@ from src.quality_checks import (
 )
 
 from src.analysis import(
-    geographic_overview
+    geographic_overview,
+    time_series_analysis,
+    correlation_analysis,
+    usage_patterns_heatmap
 )
 
 # load weather and energy data
@@ -25,16 +29,31 @@ cities = config["cities"]
 df_cities = pd.DataFrame(cities)
 
 
-st.title(":blue[U.S.A Weather] & :red[Energy Dashboard]")
+st.title(":blue[U.S Weather] & :red[Energy Dashboard]")
 
 
 # 1. Get geographic overview
 
-map = geographic_overview(df_cities)
+map = geographic_overview(df, df_cities)
 st.pydeck_chart(map)
 
 
+# 2. Time-series analysis
+st.subheader("Time Series Chart")
+fig = time_series_analysis(df, df_cities)
+st.plotly_chart(fig, use_container_width=True)
 
+
+# 3. Correlation analysis
+
+st.subheader("Correlation")
+fig = correlation_analysis(df, df_cities)
+st.plotly_chart(fig, use_container_width=True)
+
+# 4. usage pattern heatmaps
+st.subheader("Usage Patterns Heatmap")
+fig = usage_patterns_heatmap(df, df_cities)
+st.plotly_chart(fig, use_container_width=True)
 
 # data quality report
 st.header("_Data Quality Report_")
