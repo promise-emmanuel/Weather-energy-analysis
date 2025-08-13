@@ -799,3 +799,13 @@ date,city,state,TMAX,TMIN,TAVG,respondent-name,timezone,value-units,Demand,Net g
 2025-08-08,New York,New York,82.0,63.0,72.5,New York Independent System Operator,Eastern,megawatthours,450265.0,414330.0
 2025-08-08,Phoenix,Arizona,114.0,92.0,103.0,Arizona Public Service Company,Mountain,megawatthours,162100.0,95226.0
 2025-08-08,Seattle,Washington,77.0,54.0,65.5,Seattle City Light,Pacific,megawatthours,22789.0,9289.0
+2025-08-09,Chicago,Illinois,95.0,76.0,85.5,"PJM Interconnection, LLC",Eastern,megawatthours,2481297.0,2650147.0
+2025-08-09,Houston,Texas,98.0,78.0,88.0,"Electric Reliability Council of Texas, Inc.",Central,megawatthours,1648716.0,1646719.0
+2025-08-09,New York,New York,85.0,64.0,74.5,New York Independent System Operator,Eastern,megawatthours,434994.0,386526.0
+2025-08-09,Phoenix,Arizona,110.0,92.0,101.0,Arizona Public Service Company,Mountain,megawatthours,159059.0,91545.0
+2025-08-09,Seattle,Washington,81.0,58.0,69.5,Seattle City Light,Pacific,megawatthours,22667.0,9147.0
+2025-08-10,Chicago,Illinois,89.0,77.0,83.0,"PJM Interconnection, LLC",Eastern,megawatthours,2509029.0,2686636.0
+2025-08-10,Houston,Texas,94.0,77.0,85.5,"Electric Reliability Council of Texas, Inc.",Central,megawatthours,1635388.0,1614156.0
+2025-08-10,New York,New York,90.0,69.0,79.5,New York Independent System Operator,Eastern,megawatthours,459226.0,408840.0
+2025-08-10,Phoenix,Arizona,108.0,91.0,99.5,Arizona Public Service Company,Mountain,megawatthours,160018.0,88953.0
+2025-08-10,Seattle,Washington,88.0,61.0,74.5,Seattle City Light,Pacific,megawatthours,24248.0,8099.0
