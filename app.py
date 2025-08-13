@@ -12,10 +12,11 @@ from src.quality_checks import (
 )
 
 from src.analysis import(
+    load_and_filter_data,
     geographic_overview,
     time_series_analysis,
     correlation_analysis,
-    usage_patterns_heatmap
+    usage_patterns_heatmap,
 )
 
 # load weather and energy data
@@ -28,32 +29,36 @@ with open("./config/config.yaml", "r") as file:
 cities = config["cities"]
 df_cities = pd.DataFrame(cities)
 
+data, df = load_and_filter_data(df, df_cities)
+
+
 
 st.title(":blue[U.S Weather] & :red[Energy Dashboard]")
 
-
 # 1. Get geographic overview
 
-map = geographic_overview(df, df_cities)
+map = geographic_overview(data, df)
 st.pydeck_chart(map)
 
 
 # 2. Time-series analysis
 st.subheader("Time Series Chart")
-fig = time_series_analysis(df, df_cities)
+fig = time_series_analysis(data)
 st.plotly_chart(fig, use_container_width=True)
 
 
 # 3. Correlation analysis
 
 st.subheader("Correlation")
-fig = correlation_analysis(df, df_cities)
+fig = correlation_analysis(data)
 st.plotly_chart(fig, use_container_width=True)
 
 # 4. usage pattern heatmaps
 st.subheader("Usage Patterns Heatmap")
-fig = usage_patterns_heatmap(df, df_cities)
+fig = usage_patterns_heatmap(data)
 st.plotly_chart(fig, use_container_width=True)
+
+
 
 # data quality report
 st.header("_Data Quality Report_")

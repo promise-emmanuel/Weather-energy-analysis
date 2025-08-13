@@ -27,14 +27,55 @@ def _merge_df(df, cities):
     merged_df = pd.merge(df, df_2, on=["city", "state"], how="inner")
     return merged_df
 
+# Function to load data and apply filters
+def load_and_filter_data(df, cities):
+    # Merge with city data
+    df = _merge_df(df, cities)
+    df["date"] = pd.to_datetime(df["date"])
+    
+    # Sidebar filters
+    st.sidebar.header("Filters")
+    
+    # Date range selector
+    min_date = df["date"].min().date()
+    max_date = df["date"].max().date()
+    start_date, end_date = st.sidebar.date_input(
+        "Select Date Range",
+        value=[min_date, max_date],
+        min_value=min_date,
+        max_value=max_date
+    )
+    
+    # City filter (multiselect)
+    city_options = sorted(df["city"].unique())
+    selected_cities = st.sidebar.multiselect(
+        "Select Cities",
+        options=city_options,
+        default=city_options
+    )
+    
+    # Filter dataframe
+    mask = (
+        (df["date"] >= pd.to_datetime(start_date)) &
+        (df["date"] <= pd.to_datetime(end_date)) &
+        (df["city"].isin(selected_cities))
+    )
+    df_filtered = df.loc[mask]
+    
+    return df_filtered, df
+
+
+
 
 
 # Visualization 1 - 
 # Function to create a geographic overview of cities
-def geographic_overview(df, cities):
-    merged_df = _merge_df(df, cities)
-    last_date = merged_df["date"].max()
-    data = _get_pct_change(merged_df)   
+def geographic_overview(filtered_df, df):
+    # get last date in data
+    last_date = df["date"].max()
+    
+    # calculate % change in demand
+    data = _get_pct_change(filtered_df)   
     
     
     # Normalize demand for color mapping
@@ -47,13 +88,13 @@ def geographic_overview(df, cities):
     
     
     
-    st.write(f"Data last updated on: {last_date}")
+    st.write(f"Last updated: {last_date.date()}")
+    
     # Define layer
     layer = pdk.Layer(
         "ScatterplotLayer",
         data=data,
         get_position="[Longitude, Latitude]",
-        # get_color="[200, 30, 0, 160]",
         get_color="[color_red, color_green, color_blue, color_alpha,]",
         get_radius=120000,
         pickable=True
@@ -61,8 +102,8 @@ def geographic_overview(df, cities):
 
     # Set the initial view
     view_state = pdk.ViewState(
-        latitude=merged_df["Latitude"].mean(),
-        longitude=merged_df["Longitude"].mean(),
+        latitude=data["Latitude"].mean(),
+        longitude=data["Longitude"].mean(),
         zoom=3,
         pitch=50
     )
@@ -85,7 +126,7 @@ def geographic_overview(df, cities):
 
 
 # visualization 2 - Function to create a time series analysis of energy usage and weather
-def time_series_analysis(data, cities):
+def time_series_analysis(data):
     """
     data, cities -> inputs you already pass (keeps your existing _merge_df usage).
     Returns a Plotly figure with:
@@ -94,21 +135,21 @@ def time_series_analysis(data, cities):
       - Weekend shading: Saturday = LightGray, Sunday = LightBlue
     """
     
-    df = _merge_df(data, cities)
+    
     
     # Ensure the 'date' column is datetime
-    df["date"] = pd.to_datetime(df["date"])
+    data["date"] = pd.to_datetime(data["date"])
     
     # dropdown for city selection
-    cities = ["All Cities"] + sorted(df["city"].unique())
+    cities = ["All Cities"] + sorted(data["city"].unique())
     selected_city = st.selectbox("Select a city", cities)
     
     # filter for city if not all cities
     if selected_city != "All Cities":
-        df_filtered = df[df["city"] == selected_city].copy()
+        df_filtered = data[data["city"] == selected_city].copy()
     else:
         #group by date and average_values
-        df_filtered = df.groupby("date", as_index=False).agg({
+        df_filtered = data.groupby("date", as_index=False).agg({
             "TAVG": "mean",
             "Demand": "mean"
         })
@@ -179,7 +220,7 @@ def time_series_analysis(data, cities):
     
     
     fig.update_layout(
-        title=f"Temperature vs Energy Demand (Last 90 Days) - {selected_city}",
+        title=f"Temperature vs Energy Demand - {selected_city}",
         xaxis=dict(title="Date"),
         yaxis=dict(title="Temperature (°F)", side="left"),
         yaxis2=dict(title="Energy Demand (MWh)", side="right", overlaying="y"),
@@ -196,19 +237,18 @@ import pandas as pd
 import numpy as np
 import statsmodels.api as sm
 
-def correlation_analysis(data, cities):
-    # Merge data with city info
-    df = _merge_df(data, cities)
-    df["date"] = pd.to_datetime(df["date"])
+def correlation_analysis(data):
+    
+    data["date"] = pd.to_datetime(data["date"])
     
     # Dropdown: city selection
-    city_options = ["All Cities"] + sorted(df["city"].unique())
+    city_options = ["All Cities"] + sorted(data["city"].unique())
     selected_city = st.selectbox("Select a city for correlation analysis", city_options)
     
     if selected_city != "All Cities":
-        df_filtered = df[df["city"] == selected_city]
+        df_filtered = data[data["city"] == selected_city]
     else:
-        df_filtered = df.copy()
+        df_filtered = data.copy()
     
     # X = Temperature, Y = Energy Demand
     X = df_filtered["TAVG"]
@@ -270,56 +310,114 @@ def correlation_analysis(data, cities):
 
 
 
+def usage_patterns_heatmap(data):
+    # Ensure date is datetime
+    data["date"] = pd.to_datetime(data["date"])
 
-def usage_patterns_heatmap(data, cities):
-    # Merge datasets
-    df = _merge_df(data, cities)
-    df["date"] = pd.to_datetime(df["date"])
-    
     # Dropdown for city
-    city_options = ["All Cities"] + sorted(df["city"].unique())
+    city_options = ["All Cities"] + sorted(data["city"].unique())
     selected_city = st.selectbox("Select a city for heatmap", city_options)
-    
+
     if selected_city != "All Cities":
-        df_filtered = df[df["city"] == selected_city]
+        df_filtered = data[data["city"] == selected_city].copy()
     else:
-        df_filtered = df.copy()
-    
-    # Create temperature bins
+        df_filtered = data.copy()
+
+    # Define temperature bins and ordered categorical type (important for axis order)
     temp_bins = [-float("inf"), 50, 60, 70, 80, 90, float("inf")]
     temp_labels = ["<50°F", "50-60°F", "60-70°F", "70-80°F", "80-90°F", ">90°F"]
+
     df_filtered["TempRange"] = pd.cut(df_filtered["TAVG"], bins=temp_bins, labels=temp_labels)
-    
-    # Extract day of week
+    # Make TempRange an ordered categorical so the pivot keeps correct order
+    df_filtered["TempRange"] = pd.Categorical(df_filtered["TempRange"], categories=temp_labels, ordered=True)
+
+    # Extract day of week and force consistent ordering for columns
     df_filtered["DayOfWeek"] = df_filtered["date"].dt.day_name()
-    
-    # Group and calculate average demand
-    heatmap_data = df_filtered.groupby(["TempRange", "DayOfWeek"])["Demand"].mean().reset_index()
-    
-    # Pivot for heatmap
-    heatmap_pivot = heatmap_data.pivot(index="TempRange", columns="DayOfWeek", values="Demand")
-    
-    # Ensure consistent day order
     day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    heatmap_pivot = heatmap_pivot[day_order]
-    
-    # Plotly heatmap
+    df_filtered["DayOfWeek"] = pd.Categorical(df_filtered["DayOfWeek"], categories=day_order, ordered=True)
+
+    # Group and calculate average demand. Use pivot_table to ensure missing combos exist.
+    heatmap_pivot = (
+        df_filtered
+        .pivot_table(index="TempRange", columns="DayOfWeek", values="Demand", aggfunc="mean")
+        .reindex(index=temp_labels, columns=day_order)   # enforce exact ordering
+    )
+
+    # Optionally fill NaN with np.nan (leave blank) or 0 — choose based on preference.
+    # Here we keep NaN so empty cells are visually distinct.
+    # heatmap_pivot = heatmap_pivot.fillna(0)
+
+    # Plotly heatmap: use sequential "hot" scale so low=blue-ish, high=red/orange.
     fig = px.imshow(
         heatmap_pivot,
-        color_continuous_scale="RdBu_r",
+        color_continuous_scale="YlOrRd",   # sequential hot scale (blue->red not reversed)
         aspect="auto",
         labels=dict(color="Avg Energy Demand (MWh)"),
-        text_auto=".1f"  # show demand values in each cell
+        text_auto=".1f",
+        origin="upper"                      # first index (<50°F) will appear at top
     )
-    
+
+    # Improve layout and add explicit colorbar title
     fig.update_layout(
         title=f"Usage Patterns by Temperature & Day of Week - {selected_city}",
         xaxis_title="Day of Week",
         yaxis_title="Temperature Range",
         coloraxis_colorbar=dict(title="Avg Energy Demand (MWh)")
     )
-    
+
     return fig
+
+
+
+
+# def usage_patterns_heatmap(data):
+    
+#     data["date"] = pd.to_datetime(data["date"])
+    
+#     # Dropdown for city
+#     city_options = ["All Cities"] + sorted(data["city"].unique())
+#     selected_city = st.selectbox("Select a city for heatmap", city_options)
+    
+#     if selected_city != "All Cities":
+#         df_filtered = data[data["city"] == selected_city]
+#     else:
+#         df_filtered = data.copy()
+    
+#     # Create temperature bins
+#     temp_bins = [-float("inf"), 50, 60, 70, 80, 90, float("inf")]
+#     temp_labels = ["<50°F", "50-60°F", "60-70°F", "70-80°F", "80-90°F", ">90°F"]
+#     df_filtered["TempRange"] = pd.cut(df_filtered["TAVG"], bins=temp_bins, labels=temp_labels)
+    
+#     # Extract day of week
+#     df_filtered["DayOfWeek"] = df_filtered["date"].dt.day_name()
+    
+#     # Group and calculate average demand
+#     heatmap_data = df_filtered.groupby(["TempRange", "DayOfWeek"])["Demand"].mean().reset_index()
+    
+#     # Pivot for heatmap
+#     heatmap_pivot = heatmap_data.pivot(index="TempRange", columns="DayOfWeek", values="Demand")
+    
+#     # Ensure consistent day order
+#     day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+#     heatmap_pivot = heatmap_pivot[day_order]
+    
+#     # Plotly heatmap
+#     fig = px.imshow(
+#         heatmap_pivot,
+#         color_continuous_scale="RdBu_r",
+#         aspect="auto",
+#         labels=dict(color="Avg Energy Demand (MWh)"),
+#         text_auto=".1f"  # show demand values in each cell
+#     )
+    
+#     fig.update_layout(
+#         title=f"Usage Patterns by Temperature & Day of Week - {selected_city}",
+#         xaxis_title="Day of Week",
+#         yaxis_title="Temperature Range",
+#         coloraxis_colorbar=dict(title="Avg Energy Demand (MWh)")
+#     )
+    
+#     return fig
 
 
 

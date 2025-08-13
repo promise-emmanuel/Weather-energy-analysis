@@ -300,3 +300,48 @@ Traceback (most recent call last):
   File "/home/promise/projects/Datascience/project1-energy-analysis/.venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
     raise ConnectionError(e, request=request)
 requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.ncei.noaa.gov', port=443): Max retries exceeded with url: /cdo-web/api/v2/data?datasetid=GHCND&stationid=GHCND%3AUSW00094728&startdate=2025-08-09&enddate=2025-08-12&datatypeid=TMAX%2C+TMIN&limit=1000&units=standard (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7ccd42b2c140>: Failed to resolve 'www.ncei.noaa.gov' ([Errno -3] Temporary failure in name resolution)"))
+Fetching data for New York...2025-08-11 - 2025-08-13
+⚠️ Warning: No weather data for New York. Skipping...
+
+Fetching data for Chicago...2025-08-11 - 2025-08-13
+⚠️ Warning: No weather data for Chicago. Skipping...
+
+Fetching data for Houston...2025-08-11 - 2025-08-13
+⚠️ Warning: No weather data for Houston. Skipping...
+
+Fetching data for Phoenix...2025-08-11 - 2025-08-13
+⚠️ Warning: No weather data for Phoenix. Skipping...
+
+Fetching data for Seattle...2025-08-11 - 2025-08-13
+⚠️ Warning: No weather data for Seattle. Skipping...
+
+
+Retrieving energy data......
+
+Data for New York is up-to-date
+
+Data for New York is up-to-date
+Sleeping for 10 seconds
+
+Data for Chicago is up-to-date
+
+Data for Chicago is up-to-date
+Sleeping for 10 seconds
+
+Data for Houston is up-to-date
+
+Data for Houston is up-to-date
+Sleeping for 10 seconds
+
+Data for Phoenix is up-to-date
+
+Data for Phoenix is up-to-date
+Sleeping for 10 seconds
+
+Data for Seattle is up-to-date
+
+Data for Seattle is up-to-date
+Sleeping for 10 seconds
+Data retriever done...
+
+completed task
