@@ -231,11 +231,6 @@ def time_series_analysis(data):
     
     return fig
 
-import streamlit as st
-import plotly.graph_objects as go
-import pandas as pd
-import numpy as np
-import statsmodels.api as sm
 
 def correlation_analysis(data):
     
@@ -310,62 +305,123 @@ def correlation_analysis(data):
 
 
 
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+import numpy as np
+
 def usage_patterns_heatmap(data):
-    # Ensure date is datetime
-    data["date"] = pd.to_datetime(data["date"])
+    # --- prep & sidebar ---
+    df = data.copy()
+    df["date"] = pd.to_datetime(df["date"])
 
     # Dropdown for city
     city_options = ["All Cities"] + sorted(data["city"].unique())
     selected_city = st.selectbox("Select a city for heatmap", city_options)
 
     if selected_city != "All Cities":
-        df_filtered = data[data["city"] == selected_city].copy()
+        df = data[data["city"] == selected_city].copy()
     else:
-        df_filtered = data.copy()
+        df = data.copy()
 
-    # Define temperature bins and ordered categorical type (important for axis order)
+
+    
+    # --- bins: define labels once (cold->hot) + display order (hot->cold) ---
     temp_bins = [-float("inf"), 50, 60, 70, 80, 90, float("inf")]
-    temp_labels = ["<50°F", "50-60°F", "60-70°F", "70-80°F", "80-90°F", ">90°F"]
+    temp_labels_asc = ["<50°F", "50-60°F", "60-70°F", "70-80°F", "80-90°F", ">90°F"]   # cold -> hot
+    temp_labels_desc = [">90°F", "80-90°F", "70-80°F", "60-70°F", "50-60°F", "<50°F"]  # hot -> cold (display)
 
-    df_filtered["TempRange"] = pd.cut(df_filtered["TAVG"], bins=temp_bins, labels=temp_labels)
-    # Make TempRange an ordered categorical so the pivot keeps correct order
-    df_filtered["TempRange"] = pd.Categorical(df_filtered["TempRange"], categories=temp_labels, ordered=True)
+    # bin and then set the categorical order to HOT->COLD for display
+    df["TempRange"] = pd.cut(df["TAVG"], bins=temp_bins, labels=temp_labels_asc)
+    df["TempRange"] = pd.Categorical(df["TempRange"], categories=temp_labels_desc, ordered=True)
 
-    # Extract day of week and force consistent ordering for columns
-    df_filtered["DayOfWeek"] = df_filtered["date"].dt.day_name()
+    # day ordering (Mon->Sun)
     day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    df_filtered["DayOfWeek"] = pd.Categorical(df_filtered["DayOfWeek"], categories=day_order, ordered=True)
+    df["DayOfWeek"] = pd.Categorical(df["date"].dt.day_name(), categories=day_order, ordered=True)
 
-    # Group and calculate average demand. Use pivot_table to ensure missing combos exist.
+    # --- pivot in the exact display order (hot->cold rows, Mon->Sun cols) ---
     heatmap_pivot = (
-        df_filtered
-        .pivot_table(index="TempRange", columns="DayOfWeek", values="Demand", aggfunc="mean")
-        .reindex(index=temp_labels, columns=day_order)   # enforce exact ordering
+        df.pivot_table(index="TempRange", columns="DayOfWeek", values="Demand", aggfunc="mean")
+          .reindex(index=temp_labels_desc, columns=day_order)
     )
 
-    # Optionally fill NaN with np.nan (leave blank) or 0 — choose based on preference.
-    # Here we keep NaN so empty cells are visually distinct.
-    # heatmap_pivot = heatmap_pivot.fillna(0)
-
-    # Plotly heatmap: use sequential "hot" scale so low=blue-ish, high=red/orange.
+    # --- plot: NO axis reversal; first row (>90°F) will be at the top ---
     fig = px.imshow(
         heatmap_pivot,
-        color_continuous_scale="YlOrRd",   # sequential hot scale (blue->red not reversed)
+        color_continuous_scale="YlOrRd",        # low=light, high=red
         aspect="auto",
         labels=dict(color="Avg Energy Demand (MWh)"),
         text_auto=".1f",
-        origin="upper"                      # first index (<50°F) will appear at top
+        origin="upper"                          # keeps first index row at the top
     )
 
-    # Improve layout and add explicit colorbar title
     fig.update_layout(
-        title=f"Usage Patterns by Temperature & Day of Week - {selected_city}",
+        title="Usage Patterns by Temperature & Day of Week",
         xaxis_title="Day of Week",
-        yaxis_title="Temperature Range",
-        coloraxis_colorbar=dict(title="Avg Energy Demand (MWh)")
+        yaxis_title="Temperature Range (hot → cold)",
+        coloraxis_colorbar=dict(title="Avg Energy Demand (MWh)"),
+        margin=dict(l=80, r=40, t=70, b=40),
     )
 
     return fig
+
+
+# def usage_patterns_heatmap(data):
+#     # Ensure date is datetime
+#     data["date"] = pd.to_datetime(data["date"])
+
+    # # Dropdown for city
+    # city_options = ["All Cities"] + sorted(data["city"].unique())
+    # selected_city = st.selectbox("Select a city for heatmap", city_options)
+
+    # if selected_city != "All Cities":
+    #     df_filtered = data[data["city"] == selected_city].copy()
+    # else:
+    #     df_filtered = data.copy()
+
+#     # Define temperature bins and ordered categorical type (important for axis order)
+#     temp_bins = [-float("inf"), 50, 60, 70, 80, 90, float("inf")]
+#     temp_labels = ["<50°F", "50-60°F", "60-70°F", "70-80°F", "80-90°F", ">90°F"]
+
+#     df_filtered["TempRange"] = pd.cut(df_filtered["TAVG"], bins=temp_bins, labels=temp_labels)
+#     # Make TempRange an ordered categorical so the pivot keeps correct order
+#     df_filtered["TempRange"] = pd.Categorical(df_filtered["TempRange"], categories=temp_labels, ordered=True)
+
+#     # Extract day of week and force consistent ordering for columns
+#     df_filtered["DayOfWeek"] = df_filtered["date"].dt.day_name()
+#     day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+#     df_filtered["DayOfWeek"] = pd.Categorical(df_filtered["DayOfWeek"], categories=day_order, ordered=True)
+
+#     # Group and calculate average demand. Use pivot_table to ensure missing combos exist.
+#     heatmap_pivot = (
+#         df_filtered
+#         .pivot_table(index="TempRange", columns="DayOfWeek", values="Demand", aggfunc="mean")
+#         .reindex(index=temp_labels, columns=day_order)   # enforce exact ordering
+#     )
+
+#     # Optionally fill NaN with np.nan (leave blank) or 0 — choose based on preference.
+#     # Here we keep NaN so empty cells are visually distinct.
+#     # heatmap_pivot = heatmap_pivot.fillna(0)
+
+#     # Plotly heatmap: use sequential "hot" scale so low=blue-ish, high=red/orange.
+#     fig = px.imshow(
+#         heatmap_pivot,
+#         color_continuous_scale="YlOrRd",   # sequential hot scale (blue->red not reversed)
+#         aspect="auto",
+#         labels=dict(color="Avg Energy Demand (MWh)"),
+#         text_auto=".1f",
+#         origin="upper"                      # first index (<50°F) will appear at top
+#     )
+
+#     # Improve layout and add explicit colorbar title
+#     fig.update_layout(
+#         title=f"Usage Patterns by Temperature & Day of Week - {selected_city}",
+#         xaxis_title="Day of Week",
+#         yaxis_title="Temperature Range",
+#         coloraxis_colorbar=dict(title="Avg Energy Demand (MWh)")
+#     )
+
+#     return fig
 
 
 
